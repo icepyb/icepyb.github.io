@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+
+
+[msysgit](http://msysgit.github.com/)
+[tortoisegit](http://code.google.com/p/tortoisegit/)
+
+#初始设置
+选个目录
+git init
+*初始化git，会创建一个.git文件夹
+
+---
+#全局配置
+git config –list 查看所有系统配置项。
+git config --global user.email “icepyb@gmail.com”
+git config --global user.name “icepyb”
+
+---
+# 配置远程库连接
+## SSH连接时
+ssh-keygen -t rsa -C your_email@youremail.com
+*建议按三次回车将密钥存在默认位置。因为存在其他地方git好像要经过配置才会使用该密钥，但不会配这个操作。
+
+clip <id_rsa.pub
+*将公钥拷贝到剪切板。
+*将公钥黏贴到网站的SSH管理上。
+
+ssh -T git@github.com
+	-v 可看debug信息
+	京东为git@code.jd.com
+*可以测试SSH登陆。
+
+git clone git@ip|domain:user/repo_name.git
+
+##HTTPS连接时
+由于Github的SSH 22端口登陆总是失败，所以考虑使用GAE代理后的HTTPS方式连接。
+
+git config --global http.proxy “127.0.0.1:8087”
+*配gae的代理
+
+git config --global http.sslverify false
+*不进行SSL证书验证
+
+git clone https:\\IP|domain\user\ repo_name.git
+
+---
+
+# 远端库管理
+*在使用git clone 时会默认将目标仓库设为origin，相当于已添加了远端库。
+
+##查看远端库
+git remote –v
+*显示为：远端库标签 远端库URL地址，意思是将远端库映射为该标签，以后使用该标签代表该远端库。
+
+##添加远端库
+git remote add origin git@github.com:yourName/yourRepo.git
+git remote add origin https://code.jd.com/yourName/yourRepo.git
+*git remote add远端库标签 远端库URL地址
+
+##修改远端库url
+git remote set-url origin NEW_URL
+*git remote set-url远端库标签 新远端库URL地址
+
+#远端库操作
+##提交到远端库
+git push origin master
+*git push 远端库标签 远端库分支 ， 其中origin是典型的标签，master是典型的分支。
+*本地仓库会推送到相应远端库的相应分支。
+
+git push origin <local_branch_name>:<remote_branch_name>
+*git push 远端库标签 本地库分支名:远端库分支名
+*一般当前如果不在该分支时，使用这种方式提交。如果当前在该分支下，也可以直接提交git push
+
+*当git push时可能需要先设置push的类型
+git config --global push.default simple
+git config --global push.default matching
+
+##从远端库下载
+git pull 
+
+##更新远程库
+git fetch命令，只是更新远程分支上本地没有的数据到本地分支。
+
+##合并
+git merge
+
+##删除远程库分支
+git push origin :develop
+*git push 远端库标签 本地库分支名:远端库分支名，将空的推送到远程分支。
+
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<p><a href="http://msysgit.github.com/">msysgit</a>
+<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a></p>
+
+<h1>初始设置</h1>
+
+<p>选个目录
+git init
+*初始化git，会创建一个.git文件夹</p>
+
+<hr>
+
+<h1>全局配置</h1>
+
+<p>git config –list 查看所有系统配置项。
+git config --global user.email “icepyb@gmail.com”
+git config --global user.name “icepyb”</p>
+
+<hr>
+
+<h1>配置远程库连接</h1>
+
+<h2 id="ssh">SSH连接时</h2>
+
+<p>ssh-keygen -t rsa -C your_email@youremail.com
+*建议按三次回车将密钥存在默认位置。因为存在其他地方git好像要经过配置才会使用该密钥，但不会配这个操作。</p>
+
+<p>clip <id_rsa.pub p="" *将公钥黏贴到网站的ssh管理上。<="" *将公钥拷贝到剪切板。="">
+
+</id_rsa.pub><p>ssh -T git@github.com
+    -v 可看debug信息
+    京东为git@code.jd.com
+*可以测试SSH登陆。</p>
+
+<p>git clone git@ip|domain:user/repo_name.git</p>
+
+<h2 id="https">HTTPS连接时</h2>
+
+<p>由于Github的SSH 22端口登陆总是失败，所以考虑使用GAE代理后的HTTPS方式连接。</p>
+
+<p>git config --global http.proxy “127.0.0.1:8087”
+*配gae的代理</p>
+
+<p>git config --global http.sslverify false
+*不进行SSL证书验证</p>
+
+<p>git clone https:\IP|domain\user\ repo_name.git</p>
+
+<hr>
+
+<h1>远端库管理</h1>
+
+<p>*在使用git clone 时会默认将目标仓库设为origin，相当于已添加了远端库。</p>
+
+<h2>查看远端库</h2>
+
+<p>git remote –v
+*显示为：远端库标签 远端库URL地址，意思是将远端库映射为该标签，以后使用该标签代表该远端库。</p>
+
+<h2>添加远端库</h2>
+
+<p>git remote add origin git@github.com:yourName/yourRepo.git
+git remote add origin https://code.jd.com/yourName/yourRepo.git
+*git remote add远端库标签 远端库URL地址</p>
+
+<h2 id="url">修改远端库url</h2>
+
+<p>git remote set-url origin NEW_URL
+*git remote set-url远端库标签 新远端库URL地址</p>
+
+<h1>远端库操作</h1>
+
+<h2>提交到远端库</h2>
+
+<p>git push origin master
+*git push 远端库标签 远端库分支 ， 其中origin是典型的标签，master是典型的分支。
+*本地仓库会推送到相应远端库的相应分支。</p>
+
+<p>git push origin <local_branch_name>:<remote_branch_name>
+*git push 远端库标签 本地库分支名:远端库分支名
+*一般当前如果不在该分支时，使用这种方式提交。如果当前在该分支下，也可以直接提交git push</remote_branch_name></local_branch_name></p>
+
+<p>*当git push时可能需要先设置push的类型
+git config --global push.default simple
+git config --global push.default matching</p>
+
+<h2>从远端库下载</h2>
+
+<p>git pull </p>
+
+<h2>更新远程库</h2>
+
+<p>git fetch命令，只是更新远程分支上本地没有的数据到本地分支。</p>
+
+<h2>合并</h2>
+
+<p>git merge</p>
+
+<h2>删除远程库分支</h2>
+
+<p>git push origin :develop
+*git push 远端库标签 本地库分支名:远端库分支名，将空的推送到远程分支。</p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "git_init.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
