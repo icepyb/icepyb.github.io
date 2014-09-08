@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="Keywords" content="blog"/>
-    <meta name="Description" content="blog"/>
-    <title>Simple</title>
+    <meta name="Keywords" content="icepyb blog"/>
+    <meta name="Description" content="Icepyb @ Github"/>
+    <title>Icepyb @ Github</title>
     <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
 </head>
@@ -13,9 +13,9 @@
 <div class="main">
     <div class="header">
     	<ul id="pages">
-            <li><a href="/">home</a></li>
-            <li><a href="/#/tags">tags</a></li>
-            <li><a href="/#/archive">archive</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#/tags">Tags</a></li>
+            <li><a href="/#/archive">Archive</a></li>
     	</ul>
     </div>
 	<div class="wrap-header">
@@ -27,8 +27,11 @@
 <!-- markdown -->
 
 
-[msysgit](http://msysgit.github.com/)
-[tortoisegit](http://code.google.com/p/tortoisegit/)
+\>>> [msysgit](http://msysgit.github.com/)
+-
+\>>> [tortoisegit](http://code.google.com/p/tortoisegit/)
+-
+---
 
 #初始设置
 选个目录
@@ -87,6 +90,7 @@ git remote add origin https://code.jd.com/yourName/yourRepo.git
 git remote set-url origin NEW_URL
 *git remote set-url远端库标签 新远端库URL地址
 
+---
 #远端库操作
 ##提交到远端库
 git push origin master
@@ -118,8 +122,11 @@ git push origin :develop
 </div>
 <div class="entry" id="main">
 <!-- content -->
-<p><a href="http://msysgit.github.com/">msysgit</a>
-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a></p>
+<h2 id="msysgithttpmsysgitgithubcom">&gt;&gt;&gt; <a href="http://msysgit.github.com/">msysgit</a></h2>
+
+<h2 id="tortoisegithttpcodegooglecomptortoisegit">&gt;&gt;&gt; <a href="http://code.google.com/p/tortoisegit/">tortoisegit</a></h2>
+
+<hr>
 
 <h1>初始设置</h1>
 
@@ -144,7 +151,7 @@ git config --global user.name “icepyb”</p>
 <p>ssh-keygen -t rsa -C your_email@youremail.com
 *建议按三次回车将密钥存在默认位置。因为存在其他地方git好像要经过配置才会使用该密钥，但不会配这个操作。</p>
 
-<p>clip <id_rsa.pub p="" *将公钥黏贴到网站的ssh管理上。<="" *将公钥拷贝到剪切板。="">
+<p>clip <id_rsa.pub *将公钥拷贝到剪切板。="" *将公钥黏贴到网站的ssh管理上。<="" p="">
 
 </id_rsa.pub><p>ssh -T git@github.com
     -v 可看debug信息
@@ -187,6 +194,8 @@ git remote add origin https://code.jd.com/yourName/yourRepo.git
 <p>git remote set-url origin NEW_URL
 *git remote set-url远端库标签 新远端库URL地址</p>
 
+<hr>
+
 <h1>远端库操作</h1>
 
 <h2>提交到远端库</h2>
@@ -225,7 +234,7 @@ git config --global push.default matching</p>
 <br>
     <div id="disqus_thread"></div>
 	<div class="footer">
-		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+		<p>© Copyright 2014 by Icepyb </p>
 	</div>
 </div>
 <script src="main.js"></script>
